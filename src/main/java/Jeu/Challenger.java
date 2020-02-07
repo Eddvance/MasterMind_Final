@@ -10,11 +10,11 @@ public class Challenger extends Game implements Jouable {
     }
         @Override
         public void prepareJeu () {
-            System.out.println("je suis dans prepare jeu");
             combinaisonSecrete = new ArrayList<>();
+
             for (int i = 0; i < combinaisonSize; i++) {
                 combinaisonSecrete.add(getRandomNumberInRange(0, 9));
-            }System.out.println(combinaisonSecrete);
+            }
             if ("dev".equals(Mastermind.mode)) {
                 System.out.println(combinaisonSecrete);
             }
@@ -23,20 +23,19 @@ public class Challenger extends Game implements Jouable {
         @Override
         public GameCard joue () {
             GameCard gc = new GameCard(false, 1, player);
-            System.out.println(nbEssai);
+
             while ((gc.getScore() <= nbEssai) && !gc.isGagne()) {
-                System.out.println("je suis dans le while");
                 gc = joueUnTour(gc);
             }
-
             return gc;
         }
+
         /**
          *
          */
 
         public GameCard joueUnTour (GameCard gc ){///////
-            System.out.println("je suis au debut de joueUnTour");
+
             List<Integer> propo = saisieCombinaison();
             List<String> derniereReponse = getReponse(propo);
             System.out.println("validation :" + derniereReponse);
@@ -45,5 +44,4 @@ public class Challenger extends Game implements Jouable {
 
             return gc;
         }
-
 }
