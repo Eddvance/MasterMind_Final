@@ -7,19 +7,12 @@ public class GameCard {
     private boolean gagne;
     private int score;
 
-    /**
-     * @param gagne
-     * @param score
-     * @param player
-     */
+
     public GameCard(boolean gagne, int score, Joueur player) {
         this.gagne = gagne;
         this.score = score;
     }
 
-    /**
-     * @return
-     */
     public boolean isGagne() {
         return gagne;
     }

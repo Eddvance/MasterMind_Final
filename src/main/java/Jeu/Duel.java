@@ -18,7 +18,6 @@ public class Duel implements Jouable{
     public void prepareJeu() {
         // initialiser un defenseur
         // initialiser un challenger
-
         def = new Defenseur(combinaisonSize,nbEssai,player);
         chall = new Challenger(combinaisonSize,nbEssai,player);
         def.prepareJeu();
@@ -37,6 +36,12 @@ public class Duel implements Jouable{
         return getGcGlobale(gcDefenseur,gcChallenger);
     }
 
+    /**
+     *
+     * @param gcDefenseur
+     * @param gcChallenger
+     * @return
+     */
     private GameCard getGcGlobale(GameCard gcDefenseur, GameCard gcChallenger) {
         // Todo evaluer le bon gc
         return gcDefenseur;

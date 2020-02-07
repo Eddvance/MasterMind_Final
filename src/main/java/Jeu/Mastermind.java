@@ -22,11 +22,9 @@ public static Scanner enter = new Scanner(System.in);
 
         ArrayList<String> params;
         //Mastermind app = new Mastermind();
-        //System.out.println(new File("").getAbsolutePath().concat("/resources/config.properties"));
         params=getPropValues();
         combiSize = Integer.parseInt(params.get(0));
         nbEssai = Integer.parseInt(params.get(1));
-       // System.out.println(params.get(1));
         Joueur player = initJoueur();
         Jouable jeu = null;
 
@@ -42,15 +40,15 @@ public static Scanner enter = new Scanner(System.in);
                     break;
                 default:
                     System.out.println("Aucun mode n'a ete choisi, veuillez recommencer");
-                    //chooseMode();
             }
             jeu.start();
         }
         static InputStream inputStream;
 
     /**
-     *
-     * @return
+     * Chargement de la configuration en fonction des parametres choisis
+     * Recuperation des proprietes du jeu et gestion (catch) d'exception
+     * @return result La configuration choisie
      * @throws IOException
      */
     public static ArrayList<String> getPropValues () throws IOException {
@@ -77,10 +75,12 @@ public static Scanner enter = new Scanner(System.in);
             return result;
     }
         /**
-         * Chargement de la configuration
+         * Chargement de la configuration en fonction des parametres choisis
+         * Recuperation des proprietes du jeu et gestion (catch) d'exception
          * @return resultat de configuration choisie
          */
    public static ArrayList<String> loadConfig () {
+
       ArrayList<String> resultat = new ArrayList<>();
        try {
           Properties prop = new Properties();
@@ -105,9 +105,10 @@ public static Scanner enter = new Scanner(System.in);
 
   /**
   * Initialisation du joueur, affichage des regles du jeu
-  * @return player
+  * @return player Un joueur
   */
   public static Joueur initJoueur () {
+
      System.out.println("Bonjour, Veuillez saisir votre nom SVP");
      System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
      String nom = enter.nextLine();
@@ -130,7 +131,7 @@ public static Scanner enter = new Scanner(System.in);
 
     /**
      * Choix du mode de jeu et controle de la saisie d'entier
-     * @return mode de jeu choisi
+     * @return retour Mode de jeu choisi
     */
     private static int chooseMode () {
 

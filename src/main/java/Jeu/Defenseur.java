@@ -11,8 +11,6 @@ class Defenseur extends Game implements Jouable {
 
     public Defenseur(int combinaisonSize, int nbEssai, Joueur player) {
         super(combinaisonSize, nbEssai, player);
-        //List<String> derniereReponse = new ArrayList<>();
-       // List<Integer> derniereProposition = new ArrayList<>();
     }
 
     @Override
@@ -30,13 +28,18 @@ class Defenseur extends Game implements Jouable {
         return gc;
     }
 
-    public GameCard joueUnTour(GameCard gc) {//////
+    /**
+     *
+     * @param gc
+     * @return
+     */
+    public GameCard joueUnTour(GameCard gc) {
 
         System.out.println("Le systeme joue");
-        List<Integer> propo = generateProposition(derniereReponse, derniereProposition);
-        System.out.println("sa proposition :" + propo);
-        derniereProposition = propo;
-        derniereReponse = getReponse(propo);
+        List<Integer> proposition = generateProposition(derniereReponse, derniereProposition);
+        System.out.println("sa proposition :" + proposition);
+        derniereProposition = proposition;
+        derniereReponse = getReponse(proposition);
         System.out.println("validation :" + derniereReponse);
         gc.setGagne(isRight(derniereReponse));
         gc.setScore(gc.getScore() + 1);
@@ -44,32 +47,36 @@ class Defenseur extends Game implements Jouable {
         return gc;
     }
 
+    /**
+     * Genere une proposition random
+     * @param derniereReponse La derniere reponse
+     * @param derniereProposition La derniere proposition
+     * @return la proposition complete
+     */
     private List<Integer> generateProposition(List<String> derniereReponse, List<Integer> derniereProposition) {
-        List<Integer> propo = new ArrayList<>();
+
+        List<Integer> proposition = new ArrayList<>();
         if (derniereReponse == null || derniereProposition.isEmpty()) {
-            // c'est la premiere tentative
-            // all random : easy
             for (int i = 0; i < combinaisonSecrete.size(); i++) {
-                propo.add(getRandomNumberInRange(0, 9));
+                proposition.add(getRandomNumberInRange(0, 9));
             }
         } else {
             // j'ai une reponse il faut l'utilser
             int i = 0;
-            for (Integer propoValue : derniereProposition) {
+            for (Integer propositionValeur : derniereProposition) {
                 String repValue = derniereReponse.get(i);
                 i++;
                 if ("=".equals(repValue)) {
-                    propo.add(propoValue);
+                    proposition.add(propositionValeur);
                 } else if ("+".equals(repValue)) {
                     // si c'est + la bonne reponse est entre 0 et ma derniere propo - 1
-                    propo.add(getRandomNumberInRange(0, propoValue - 1));
+                    proposition.add(getRandomNumberInRange(0, propositionValeur - 1));
                 } else if ("-".equals(repValue)) {
                     // si c'est - la bonne reponse est entre ma derniere propo + 1 et 9
-                    propo.add(getRandomNumberInRange(propoValue + 1, 9));
+                    proposition.add(getRandomNumberInRange(propositionValeur + 1, 9));
                 }
             }
         }
-        return propo;
+        return proposition;
     }
 }
-

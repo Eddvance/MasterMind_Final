@@ -41,6 +41,7 @@ public class Game {
             if (saisie.length() != combinaisonSize) {
                 okSize = false;
                 System.out.println("Erreur de saisie : il faut " + combinaisonSize + "chiffres");
+                System.out.println("?????");
             }
             else{
                 okSize = true;
@@ -102,17 +103,16 @@ public class Game {
     }
 
     /**
-     * ????????????????????????
+     * Gestion de la bonne generation du Random
      * @param min
      * @param max
-     * @return
+     * @return le nombre correct genere
      */
     protected int getRandomNumberInRange(int min, int max) {
 
         if (min > max) {
             throw new IllegalArgumentException("max must be greater than min");
         }
-
         Random random = new Random();
         int generated = random.nextInt(10);
         boolean ok = false;
