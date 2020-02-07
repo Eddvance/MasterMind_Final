@@ -26,10 +26,11 @@ public static Scanner enter = new Scanner(System.in);
         ArrayList<String> params;
 
         Mastermind app = new Mastermind();
-        System.out.println(new File("").getAbsolutePath().concat("/app.properties"));
-        params = loadConfig();
+        System.out.println(new File("").getAbsolutePath().concat("/resources/config.properties"));
+        //params = loadConfig();
         params=getPropValues();
         combiSize = Integer.parseInt(params.get(0));
+        nbEssai = Integer.parseInt(params.get(1));
         System.out.println(params.get(1));
         Joueur player = initJoueur();
         Jouable jeu = null;
@@ -46,7 +47,7 @@ public static Scanner enter = new Scanner(System.in);
                     break;
                 default:
                     System.out.println("Aucun mode n'a ete choisi, veuillez recommencer");
-                    chooseMode();
+                    //chooseMode();
             }
             jeu.start();
         }
@@ -78,11 +79,11 @@ public static Scanner enter = new Scanner(System.in);
          * Chargement de la configuration
          * @return resultat de configuration choisie
          */
-   public static ArrayList<String> loadConfig () {
+  /* public static ArrayList<String> loadConfig () {
       ArrayList<String> resultat = new ArrayList<>();
        try {
           Properties prop = new Properties();
-          String propFileName = "app.properties";
+          String propFileName = "config.properties";
 
           inputStream = new FileInputStream(propFileName);
           Mastermind.class.getClassLoader().getResourceAsStream(propFileName);
