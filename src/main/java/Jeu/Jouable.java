@@ -13,12 +13,16 @@ public interface Jouable {
 
     default void resumePartie(GameCard gc) {
         String resultat = "perdu";
+        int tentative = gc.getScore()-1;
 
         if (gc.isGagne()) {
             resultat = "gagne";
+            System.out.println("Dommage !! Votre code a été trouvé en " +tentative+ " tentative(s)");
+            System.out.println("L'ordinateur a été meilleur que vous !");
         }
-        int tentative = gc.getScore()-1;
-        System.out.println("Vous avez " + resultat + " en " + tentative + " tentatives");
+        else if (!gc.isGagne())
+        System.out.println("L'ordinateur " + resultat + " en " + tentative + " tentative(s) \nFélicitation !! Votre code n'a pas été dechiffré !");
+        //System.out.println("Félicitation !! Votre code n'a pas été dechiffré !");
     }
 }
 
