@@ -109,17 +109,19 @@ public static Scanner enter = new Scanner(System.in);
   */
   public static Joueur initJoueur () {
      System.out.println("Bonjour, Veuillez saisir votre nom SVP");
-      System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
-      String nom = enter.nextLine();
-
+     System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
+     String nom = enter.nextLine();
+     System.out.println("");
      System.out.println(String.join("\n",
                 "Très bien " + nom + "! C'est parti ! ",
-               "---------------------------",
+               "                                ",
+               "--------------------------------",
                "Bienvenue dans le 'MASTERMIND' !",
-               "---------------------------",
+               "--------------------------------",
                "Mode DEFENSEUR : L'ordinateur va tenter de trouver votre combinaison.",
                "Mode CHALLENGEUR : Vous tentez de trouver la combinaison de l'ordinateur.",
-               "Mode DUEL : vous jouez contre l'ordinateur et l'ordinateur joue contre vous, à tour de rôle."));
+               "Mode DUEL : vous jouez contre l'ordinateur et l'ordinateur joue contre vous, à tour de rôle.",
+               ""));
 
        int mode = chooseMode();
        Joueur player = new Joueur(nom, mode);
@@ -131,12 +133,15 @@ public static Scanner enter = new Scanner(System.in);
      * @return mode de jeu choisi
     */
     private static int chooseMode () {
+
       int retour = 0;
+
       while (retour == 0) {
-           System.out.println("veuillez choisir votre mode de jeu :");
+           System.out.println("         Veuillez donc choisir votre mode de jeu :");
+           System.out.println("");
            System.out.println("1 - Mode DEFENSEUR");
            System.out.println("2 - Mode CHALLENGER");
-            System.out.println("3 - Mode DUEL");
+           System.out.println("3 - Mode DUEL");
 
           if (enter.hasNextInt()) {
               retour = enter.nextInt();
@@ -151,9 +156,5 @@ public static Scanner enter = new Scanner(System.in);
            }
       }
       return retour;
-
     }
-
-
-
 }

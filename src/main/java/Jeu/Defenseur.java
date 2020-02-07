@@ -11,8 +11,8 @@ class Defenseur extends Game implements Jouable {
 
     public Defenseur(int combinaisonSize, int nbEssai, Joueur player) {
         super(combinaisonSize, nbEssai, player);
-        List<String> derniereReponse = new ArrayList<>();
-        List<Integer> derniereProposition = new ArrayList<>();
+        //List<String> derniereReponse = new ArrayList<>();
+       // List<Integer> derniereProposition = new ArrayList<>();
     }
 
     @Override
@@ -26,9 +26,7 @@ class Defenseur extends Game implements Jouable {
 
         while ((gc.getScore() <= nbEssai) && !gc.isGagne()) {
             gc = joueUnTour(gc);
-
         }
-
         return gc;
     }
 
