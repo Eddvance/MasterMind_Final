@@ -13,25 +13,20 @@ public class Mastermind {
 
 public static Scanner enter = new Scanner(System.in);
 
-    private static ConfigManager config;
     public static String mode;
     private static int combiSize;
     private static int nbEssai;
     final static Logger log = LogManager.getLogger(Mastermind.class.getName());
 
     public static void main (String[]args) throws IOException {
-        log.info("Je suis au debut du main");
-        log.info("Je suis à la fin du main");
 
         ArrayList<String> params;
-
-        Mastermind app = new Mastermind();
-        System.out.println(new File("").getAbsolutePath().concat("/resources/config.properties"));
-        //params = loadConfig();
+        //Mastermind app = new Mastermind();
+        //System.out.println(new File("").getAbsolutePath().concat("/resources/config.properties"));
         params=getPropValues();
         combiSize = Integer.parseInt(params.get(0));
         nbEssai = Integer.parseInt(params.get(1));
-        System.out.println(params.get(1));
+       // System.out.println(params.get(1));
         Joueur player = initJoueur();
         Jouable jeu = null;
 
@@ -52,6 +47,12 @@ public static Scanner enter = new Scanner(System.in);
             jeu.start();
         }
         static InputStream inputStream;
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     */
     public static ArrayList<String> getPropValues () throws IOException {
         ArrayList<String> result = new ArrayList<>();
         InputStream inputStream = null;
@@ -79,12 +80,11 @@ public static Scanner enter = new Scanner(System.in);
          * Chargement de la configuration
          * @return resultat de configuration choisie
          */
-  /* public static ArrayList<String> loadConfig () {
+   public static ArrayList<String> loadConfig () {
       ArrayList<String> resultat = new ArrayList<>();
        try {
           Properties prop = new Properties();
           String propFileName = "config.properties";
-
           inputStream = new FileInputStream(propFileName);
           Mastermind.class.getClassLoader().getResourceAsStream(propFileName);
 
@@ -93,7 +93,6 @@ public static Scanner enter = new Scanner(System.in);
         } else {
              throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
          }
-
          resultat.add(prop.getProperty("game.nb.chiffre.combinaison"));
          resultat.add(prop.getProperty("game.nb.essai"));
          resultat.add(prop.getProperty("mode"));
@@ -103,8 +102,6 @@ public static Scanner enter = new Scanner(System.in);
       }
        return resultat;
    }
-
-
 
   /**
   * Initialisation du joueur, affichage des regles du jeu
@@ -116,20 +113,18 @@ public static Scanner enter = new Scanner(System.in);
       String nom = enter.nextLine();
 
      System.out.println(String.join("\n",
-                "Tres bien " + nom + "! C'est parti ! ",
-               "Bienvenue dans MASTERMIND!",
-               "Mode DEFENSEUR : L'ordinateur va tenter de trouver votre combinaison",
-               "Mode CHALLENGEUR : Vous tentez de trouver la combinaison de l'ordinateur",
-               "Mode DUEL : vous jouez contre l'ordinateur"));
+                "Très bien " + nom + "! C'est parti ! ",
+               "---------------------------",
+               "Bienvenue dans le 'MASTERMIND' !",
+               "---------------------------",
+               "Mode DEFENSEUR : L'ordinateur va tenter de trouver votre combinaison.",
+               "Mode CHALLENGEUR : Vous tentez de trouver la combinaison de l'ordinateur.",
+               "Mode DUEL : vous jouez contre l'ordinateur et l'ordinateur joue contre vous, à tour de rôle."));
 
        int mode = chooseMode();
-
        Joueur player = new Joueur(nom, mode);
        return player;
-
    }
-
-
 
     /**
      * Choix du mode de jeu et controle de la saisie d'entier
