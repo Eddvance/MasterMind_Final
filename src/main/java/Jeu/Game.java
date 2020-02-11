@@ -40,8 +40,8 @@ public class Game {
             log.info(saisie.length());
             if (saisie.length() != combinaisonSize) {
                 okSize = false;
-                System.out.println("Erreur de saisie : il faut " + combinaisonSize + "chiffres");
-                System.out.println("?????");
+                System.out.println("Erreur de saisie : il faut " + combinaisonSize + " chiffres");
+                System.out.println("Ex : 2578");
             }
             else{
                 okSize = true;
