@@ -10,7 +10,7 @@ public class Joueur {
         this.modeJeu = modeJeu;
     }
 
-    public String getNom() {
+    public String getName() {
         return nom;
     }
 
