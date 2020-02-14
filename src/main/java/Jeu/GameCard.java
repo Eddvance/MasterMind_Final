@@ -7,7 +7,6 @@ public class GameCard {
     private boolean gagne;
     private int score;
 
-
     public GameCard(boolean gagne, int score, Joueur player) {
         this.gagne = gagne;
         this.score = score;

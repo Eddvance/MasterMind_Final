@@ -23,8 +23,6 @@ public class Joueur {
     }
 
     public void setModeJeu(int modeJeu) {
-
         this.modeJeu = modeJeu;
     }
-
 }

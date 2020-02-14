@@ -29,9 +29,9 @@ class Defenseur extends Game implements Jouable {
     }
 
     /**
-     *
-     * @param gc
-     * @return
+     * Differente actions de jouer un tour
+     * @param gc le GameCard
+     * @return le GameCard
      */
     public GameCard joueUnTour(GameCard gc) {
 
@@ -51,7 +51,7 @@ class Defenseur extends Game implements Jouable {
      * Genere une proposition random
      * @param derniereReponse La derniere reponse
      * @param derniereProposition La derniere proposition
-     * @return la proposition complete
+     * @return la proposition complete genere
      */
     private List<Integer> generateProposition(List<String> derniereReponse, List<Integer> derniereProposition) {
 

@@ -11,6 +11,10 @@ public interface Jouable {
 
     GameCard joue();
 
+    /**
+     *
+     * @param gc
+     */
     default void resumePartie(GameCard gc) {
         //String resultat = "perdu";
         int tentative = gc.getScore()-1;

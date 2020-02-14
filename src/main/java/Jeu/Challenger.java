@@ -30,11 +30,12 @@ public class Challenger extends Game implements Jouable {
             return gc;
         }
 
-        /**
-         *
-         */
-
-        public GameCard joueUnTour (GameCard gc ){///////
+    /**
+     * Differente actions de jouer un tour
+     * @param gc GameCard
+     * @return GameCard
+     */
+    public GameCard joueUnTour (GameCard gc ){///////
 
             List<Integer> propo = saisieCombinaison();
             List<String> derniereReponse = getReponse(propo);
@@ -43,5 +44,5 @@ public class Challenger extends Game implements Jouable {
             gc.setScore(gc.getScore() + 1);
 
             return gc;
-        }
+    }
 }
