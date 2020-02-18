@@ -29,7 +29,7 @@ class Defenseur extends Game implements Jouable {
     }
 
     /**
-     * Differente actions de jouer un tour
+     * Differentes actions de jouer un tour
      * @param gc le GameCard
      * @return le GameCard
      */

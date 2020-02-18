@@ -8,10 +8,10 @@ public interface Jouable {
         resumePartie(gc);
     }
 
+
     void prepareJeu();
 
     GameCard joue();
-
 
     //default void resumePartie(GameCard gc) {
     //String resultat = "perdu";
@@ -34,10 +34,15 @@ public interface Jouable {
     default void resumePartie(GameCard gc) {
 
         String resultat = "perdu";
-        if (gc.isGagne()) {
+        if (gc.isGagne())
             resultat = "gagne";
-        }
         int tentative = gc.getScore()-1;
-        System.out.println("L'ordinateur a " + resultat + " en " + tentative + " tentatives");
+        if (getModeJeu) {
+            System.out.println("L'ordinateur a " + resultat + " en " + tentative + " tentatives");
+        }
+        else{
+            System.out.println("Vous");
+        }
     }
+
 }
