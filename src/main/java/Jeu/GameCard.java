@@ -28,4 +28,3 @@ public class GameCard {
         this.score = score;
     }
 }
-

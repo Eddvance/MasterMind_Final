@@ -21,13 +21,13 @@ public static Scanner enter = new Scanner(System.in);
     public static void main (String[]args) throws IOException {
 
         ArrayList<String> params;
-        //Mastermind app = new Mastermind();
         params=getPropValues();
         combiSize = Integer.parseInt(params.get(0));
         nbEssai = Integer.parseInt(params.get(1));
         Joueur player = initJoueur();
         Jouable jeu = null;
 
+        //do {
             switch (player.getModeJeu()) {
                 case 1:
                     jeu = new Defenseur(combiSize, nbEssai, player);
@@ -43,7 +43,9 @@ public static Scanner enter = new Scanner(System.in);
             }
             jeu.start();
         }
-        static InputStream inputStream;
+       // while ()
+
+        //InputStream inputStream;
 
     /**
      * Chargement de la configuration en fonction des parametres choisis
@@ -74,34 +76,6 @@ public static Scanner enter = new Scanner(System.in);
             }
             return result;
     }
-        /**
-         * Chargement de la configuration en fonction des parametres choisis
-         * Recuperation des proprietes du jeu et gestion (catch) d'exception
-         * @return resultat de configuration choisie
-         */
-   public static ArrayList<String> loadConfig () {
-
-      ArrayList<String> resultat = new ArrayList<>();
-       try {
-          Properties prop = new Properties();
-          String propFileName = "config.properties";
-          inputStream = new FileInputStream(propFileName);
-          Mastermind.class.getClassLoader().getResourceAsStream(propFileName);
-
-        if (inputStream != null) {
-            prop.load(inputStream);
-        } else {
-             throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
-         }
-         resultat.add(prop.getProperty("game.nb.chiffre.combinaison"));
-         resultat.add(prop.getProperty("game.nb.essai"));
-         resultat.add(prop.getProperty("mode"));
-
-      } catch (Exception e) {
-          System.out.println("Exception: " + e);
-      }
-       return resultat;
-   }
 
   /**
   * Initialisation du joueur, affichage des regles du jeu

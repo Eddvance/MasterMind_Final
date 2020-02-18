@@ -1,6 +1,6 @@
 package Jeu;
 
-public class Duel implements Jouable{
+public class Duel implements Jouable {
     protected int combinaisonSize;
     protected int nbEssai;
     protected Joueur player;
@@ -32,7 +32,6 @@ public class Duel implements Jouable{
             gcDefenseur = def.joueUnTour(gcDefenseur);
             gcChallenger=  chall.joueUnTour(gcChallenger);
         }
-
         return getGcGlobale(gcDefenseur,gcChallenger);
     }
 
