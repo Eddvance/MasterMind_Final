@@ -5,13 +5,13 @@ public interface Jouable {
     default void start() {
         prepareJeu();
         GameCard gc = joue();
-        resumePartie(gc);
+       // resumePartie(gc);
     }
-
 
     void prepareJeu();
 
     GameCard joue();
+}
 
     //default void resumePartie(GameCard gc) {
     //String resultat = "perdu";
@@ -30,19 +30,17 @@ public interface Jouable {
     //}
 
 //}
+   // default void resumePartie(GameCard gc) {
 
-    default void resumePartie(GameCard gc) {
-
-        String resultat = "perdu";
-        if (gc.isGagne())
-            resultat = "gagne";
-        int tentative = gc.getScore()-1;
-        if (getModeJeu) {
-            System.out.println("L'ordinateur a " + resultat + " en " + tentative + " tentatives");
-        }
-        else{
-            System.out.println("Vous");
-        }
-    }
-
-}
+      //  String resultat = "perdu";
+       // if (gc.isGagne())
+       //     resultat = "gagne";
+     //   int tentative = gc.getScore()-1;
+       // if (getModeJeu) {
+       //     System.out.println("L'ordinateur a " + resultat + " en " + tentative + " tentatives");
+       // }
+       // else{
+       //     System.out.println("Vous");
+      //  }
+ //   }
+//}

@@ -2,9 +2,10 @@ package Jeu;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import util.ConfigManager;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
@@ -50,7 +51,6 @@ public class Mastermind {
     /**
      * Chargement de la configuration en fonction des parametres choisis
      * Recuperation des proprietes du jeu et gestion (catch) d'exception
-     *
      * @return result La configuration choisie
      * @throws IOException
      */
@@ -79,8 +79,7 @@ public class Mastermind {
     }
 
     /**
-     * Initialisation du joueur, affichage des regles du jeu
-     *
+     * Initialisation du joueur, affichage des regles du jeu et du futur choix
      * @return player Un joueur
      */
     public static Joueur initJoueur() {
@@ -107,13 +106,11 @@ public class Mastermind {
 
     /**
      * Choix du mode de jeu et controle de la saisie d'entier
-     *
      * @return retour Mode de jeu choisi
      */
     public static int chooseMode() {
 
         int retour = 0;
-
         while (retour == 0) {
             System.out.println("         Veuillez donc choisir votre mode de jeu :");
             System.out.println("");
@@ -123,12 +120,13 @@ public class Mastermind {
 
             if (enter.hasNextInt()) {
                 retour = enter.nextInt();
-                enter.nextLine();
+                //enter.nextLine();
                 if (retour < 0 || retour > 3) {
-                    System.out.println("Erreur de saisie : mode entre 1 et 3");
+                    System.out.println("Erreur de saisie : selectionnez un mode entre 1 et 3");
                     retour = -1;
                 }
-            } else {
+            }
+            else {
                 enter.nextLine();
                 System.out.println("Erreur de saisie : entier uniquement");
             }

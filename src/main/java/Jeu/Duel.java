@@ -1,6 +1,7 @@
 package Jeu;
 
 public class Duel implements Jouable {
+
     protected int combinaisonSize;
     protected int nbEssai;
     protected Joueur player;
@@ -16,8 +17,6 @@ public class Duel implements Jouable {
 
     @Override
     public void prepareJeu() {
-        // initialiser un defenseur
-        // initialiser un challenger
         def = new Defenseur(combinaisonSize,nbEssai,player);
         chall = new Challenger(combinaisonSize,nbEssai,player);
         def.prepareJeu();
@@ -30,7 +29,7 @@ public class Duel implements Jouable {
         GameCard gcChallenger = new GameCard(false,1, player);
         while (jeuPasFini(gcChallenger,gcDefenseur)){
             gcDefenseur = def.joueUnTour(gcDefenseur);
-            gcChallenger=  chall.joueUnTour(gcChallenger);
+            gcChallenger = chall.joueUnTour(gcChallenger);
         }
         return getGcGlobale(gcDefenseur,gcChallenger);
     }
@@ -46,6 +45,12 @@ public class Duel implements Jouable {
         return gcDefenseur;
     }
 
+    /**
+     * Conditionne l'arret ou la poursuite du jeu
+     * @param gcChallenger le GameCard du Challenger
+     * @param gcDefenseur le GameCard du Defenseur
+     * @return pasFiniChallenger et pasFiniDefenseur
+     */
     private boolean jeuPasFini(GameCard gcChallenger, GameCard gcDefenseur) {
 
         boolean pasFiniChallenger = (gcChallenger.getScore() <= nbEssai) && !gcChallenger.isGagne();
@@ -54,5 +59,3 @@ public class Duel implements Jouable {
         return pasFiniChallenger && pasFiniDefenseur;
     }
 }
-
-

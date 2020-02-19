@@ -26,7 +26,7 @@ public class Game {
      * @return combi
      */
     protected List<Integer> saisieCombinaison() {
-        boolean okSize = false;
+        boolean okSize = true;
         boolean okInt = false;
         List<Integer> combi = new ArrayList<>();
         String saisie = null;
@@ -35,15 +35,15 @@ public class Game {
             System.out.println("veuillez choisir votre combinaison  : ");
             System.out.println("Rappel taille combinaison : " + combinaisonSize);
             saisie = Mastermind.enter.nextLine();
-
             int saisieToInt = 0;
             log.info(saisie.length());
             if (saisie.length() != combinaisonSize) {
-                okSize = false;
+                //System.out.println("ici");
+                okSize = true;
                 System.out.println("Erreur de saisie : il faut " + combinaisonSize + " chiffres");
                 System.out.println("Ex : 2578");
             }
-            else{
+            else {
                 okSize = true;
             }
             try {
