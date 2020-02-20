@@ -26,7 +26,7 @@ Choix 2 : 'Mode Challenger' - "Tentez de trouver la combinaison secrete de l'ord
 
 Choix 3 : 'Mode Duel' - "Vous et l'ordinateur jouez à tour de role pour déchiffrer la combinaison de l'autre".
 
-
+Enjoy !
 
 
 
