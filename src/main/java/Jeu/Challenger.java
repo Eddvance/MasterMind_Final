@@ -36,12 +36,12 @@ public class Challenger extends Game implements Jouable {
      */
     public GameCard joueUnTour (GameCard gc ){
 
-            List<Integer> propo = saisieCombinaison();
-            List<String> derniereReponse = getReponse(propo);
-            System.out.println("validation :" + derniereReponse);
+            List<Integer> proposition = saisieCombinaison();
+            List<String> derniereReponse = getReponse(proposition);
+            System.out.println("Analyse de la proposition :" + derniereReponse);
             gc.setGagne(isRight(derniereReponse));
             gc.setScore(gc.getScore() + 1);
 
-            return gc;
+                return gc;
     }
 }

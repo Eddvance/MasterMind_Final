@@ -34,15 +34,9 @@ public class Duel implements Jouable {
         return getGcGlobale(gcDefenseur,gcChallenger);
     }
 
-    /**
-     *
-     * @param gcDefenseur
-     * @param gcChallenger
-     * @return
-     */
     private GameCard getGcGlobale(GameCard gcDefenseur, GameCard gcChallenger) {
-        // Todo evaluer le bon gc
-        return gcDefenseur;
+
+    return gcDefenseur;
     }
 
     /**
@@ -56,6 +50,6 @@ public class Duel implements Jouable {
         boolean pasFiniChallenger = (gcChallenger.getScore() <= nbEssai) && !gcChallenger.isGagne();
         boolean pasFiniDefenseur = (gcDefenseur.getScore() <= nbEssai) && !gcDefenseur.isGagne();
 
-        return pasFiniChallenger && pasFiniDefenseur;
+            return pasFiniChallenger && pasFiniDefenseur;
     }
 }

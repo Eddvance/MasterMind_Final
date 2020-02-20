@@ -32,13 +32,11 @@ public class Game {
         String saisie = null;
 
         while (!okSize || !okInt) {
-            System.out.println("veuillez choisir votre combinaison  : ");
+            System.out.println("Veuillez choisir votre combinaison  : ");
             System.out.println("Rappel taille combinaison : " + combinaisonSize);
             saisie = Mastermind.enter.nextLine();
             int saisieToInt = 0;
-            log.info(saisie.length());
             if (saisie.length() != combinaisonSize) {
-                //System.out.println("ici");
                 okSize = true;
                 System.out.println("Erreur de saisie : il faut " + combinaisonSize + " chiffres");
                 System.out.println("Ex : 2578");
@@ -58,13 +56,12 @@ public class Game {
         for (String caractere : tabChar) {
             combi.add(Integer.parseInt(caractere));
         }
-        log.info("combi :" + combi);
         return combi;
     }
 
     /**
      * Comparaison de la porposition a la combinaison secrete
-     * @param proposition La propostion du joueur
+     * @param proposition La proposition du joueur
      * @return reponse a la proposition
      */
     protected List<String> getReponse(List<Integer> proposition) {

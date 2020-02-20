@@ -1,46 +1,35 @@
 package Jeu;
 
+import java.io.IOException;
+
 public interface Jouable {
 
-    default void start() {
+    default void start() throws IOException {
         prepareJeu();
         GameCard gc = joue();
-       // resumePartie(gc);
+        resumePartie(gc);
     }
 
     void prepareJeu();
 
     GameCard joue();
+
+    default void resumePartie(GameCard gc) throws IOException {
+      int tentative = gc.getScore()-1;
+
+      if (gc.isGagne()) {
+          System.out.println("Le code a été trouvé en " +tentative+ " tentative(s)");
+          System.out.println("");
+        }
+
+    else if (!gc.isGagne()) {
+        System.out.println("Perdu en " + tentative + " tentative(s) ! ");
+        System.out.println("");
+    }
+        System.out.println("Partie terminee");
+        System.out.println("");
+        System.out.println("Vous allez rejouer");
+        System.out.println("------------------------------");
+        Mastermind.main(new String[] {});
+    }
 }
-
-    //default void resumePartie(GameCard gc) {
-    //String resultat = "perdu";
-    //    int tentative = gc.getScore()-1;
-
-    //  if (gc.isGagne()) {
-    //    System.out.println("Dommage !! Votre code a été trouvé en " +tentative+ " tentative(s)");
-    //  System.out.println("L'ordinateur a été meilleur que vous !");
-    //}
-
-    //else if (!gc.isGagne()) {
-    //resultat = "gagne";
-    //  System.out.println("L'ordinateur a perdu en " + tentative + " tentative(s) !");
-    // System.out.println("Félicitation !! Votre code n'a pas été dechiffré !");
-    //}
-    //}
-
-//}
-   // default void resumePartie(GameCard gc) {
-
-      //  String resultat = "perdu";
-       // if (gc.isGagne())
-       //     resultat = "gagne";
-     //   int tentative = gc.getScore()-1;
-       // if (getModeJeu) {
-       //     System.out.println("L'ordinateur a " + resultat + " en " + tentative + " tentatives");
-       // }
-       // else{
-       //     System.out.println("Vous");
-      //  }
- //   }
-//}

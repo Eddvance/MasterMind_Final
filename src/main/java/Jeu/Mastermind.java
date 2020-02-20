@@ -20,7 +20,7 @@ public class Mastermind {
     final static Logger log = LogManager.getLogger(Mastermind.class.getName());
 
     public static void main(String[] args) throws IOException {
-
+        InputStream inputStream;
         ArrayList<String> params;
         params = getPropValues();
         combiSize = Integer.parseInt(params.get(0));
@@ -28,25 +28,24 @@ public class Mastermind {
         Joueur player = initJoueur();
         Jouable jeu = null;
 
-        //do {
-        switch (player.getModeJeu()) {
-            case 1:
-                jeu = new Defenseur(combiSize, nbEssai, player);
-                break;
-            case 2:
-                jeu = new Challenger(combiSize, nbEssai, player);
-                break;
-            case 3:
-                jeu = new Duel(combiSize, nbEssai, player);
-                break;
-            default:
-                System.out.println("Aucun mode n'a ete choisi, veuillez recommencer");
-        }
+        do {
+            switch (player.getModeJeu()) {
+                case 1:
+                    jeu = new Defenseur(combiSize, nbEssai, player);
+                    break;
+                case 2:
+                    jeu = new Challenger(combiSize, nbEssai, player);
+                    break;
+                case 3:
+                    jeu = new Duel(combiSize, nbEssai, player);
+                    break;
+                default:
+                    System.out.println("Aucun mode n'a ete choisi, veuillez recommencer");
+                    player = initJoueur();
+            }
+        } while (jeu == null);
         jeu.start();
     }
-    // while ()
-
-    //InputStream inputStream;
 
     /**
      * Chargement de la configuration en fonction des parametres choisis
@@ -96,7 +95,7 @@ public class Mastermind {
                 "--------------------------------",
                 "Mode DEFENSEUR : L'ordinateur va tenter de trouver votre combinaison.",
                 "Mode CHALLENGEUR : Vous tentez de trouver la combinaison de l'ordinateur.",
-                "Mode DUEL : vous jouez contre l'ordinateur et l'ordinateur joue contre vous, à tour de rôle.",
+                "Mode DUEL : Vous jouez contre l'ordinateur et l'ordinateur joue contre vous, à tour de rôle.",
                 ""));
 
         int mode = chooseMode();
@@ -120,7 +119,7 @@ public class Mastermind {
 
             if (enter.hasNextInt()) {
                 retour = enter.nextInt();
-                //enter.nextLine();
+                enter.nextLine();
                 if (retour < 0 || retour > 3) {
                     System.out.println("Erreur de saisie : selectionnez un mode entre 1 et 3");
                     retour = -1;

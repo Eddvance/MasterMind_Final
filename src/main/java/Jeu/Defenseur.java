@@ -35,12 +35,13 @@ class Defenseur extends Game implements Jouable {
      */
     public GameCard joueUnTour(GameCard gc) {
 
-        System.out.println("Le systeme joue");
+        System.out.println("L'ordinateur joue");
         List<Integer> proposition = generateProposition(derniereReponse, derniereProposition);
-        System.out.println("sa proposition :" + proposition);
+        System.out.println("Voici sa proposition :" + proposition);
         derniereProposition = proposition;
         derniereReponse = getReponse(proposition);
-        System.out.println("validation :" + derniereReponse);
+        System.out.println("");
+        System.out.println("Indices :" + derniereReponse);
         gc.setGagne(isRight(derniereReponse));
         gc.setScore(gc.getScore() + 1);
 
