@@ -25,6 +25,8 @@ public class Mastermind {
         params = getPropValues();
         combiSize = Integer.parseInt(params.get(0));
         nbEssai = Integer.parseInt(params.get(1));
+        mode = params.get(2);
+        log.info("Lancement du jeu");
         Joueur player = initJoueur();
         Jouable jeu = null;
 
