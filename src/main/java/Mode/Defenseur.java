@@ -1,9 +1,14 @@
-package Jeu;
+package Mode;
+
+import Jeu.Game;
+import Jeu.GameCard;
+import Jeu.Jouable;
+import Jeu.Joueur;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Defenseur extends Game implements Jouable {
+public class Defenseur extends Game implements Jouable {
 
     List<String> derniereReponse;
     List<Integer> derniereProposition;

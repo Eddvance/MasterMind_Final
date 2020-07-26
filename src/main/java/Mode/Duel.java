@@ -1,4 +1,10 @@
-package Jeu;
+package Mode;
+
+import Jeu.GameCard;
+import Jeu.Jouable;
+import Jeu.Joueur;
+import Mode.Challenger;
+import Mode.Defenseur;
 
 public class Duel implements Jouable {
 

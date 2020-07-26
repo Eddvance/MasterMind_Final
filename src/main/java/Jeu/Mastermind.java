@@ -1,5 +1,8 @@
 package Jeu;
 
+import Mode.Challenger;
+import Mode.Defenseur;
+import Mode.Duel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

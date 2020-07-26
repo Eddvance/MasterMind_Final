@@ -1,4 +1,6 @@
-package Jeu;
+package Mode;
+
+import Jeu.*;
 
 import java.util.ArrayList;
 import java.util.List;
