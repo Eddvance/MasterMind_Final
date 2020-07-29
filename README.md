@@ -12,7 +12,7 @@ Dans le cadre de la réalisation du projet 3 du parcours "Développeur d'applica
 
 Objectif du projet : S'assurer de la bonne mise en oeuvre des concepts fondamentaux de la programmation en Java.
 
-Il a donc été ecrit en Java EE.
+Il a donc été ecrit en Java.
 
 
 ## Getting Started
