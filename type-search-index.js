@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"Jeu","l":"Challenger"},{"p":"util","l":"ConfigManager"},{"p":"Jeu","l":"Duel"},{"p":"Jeu","l":"Game"},{"p":"Jeu","l":"GameCard"},{"p":"Jeu","l":"Jouable"},{"p":"Jeu","l":"Joueur"},{"p":"Jeu","l":"Mastermind"}]
